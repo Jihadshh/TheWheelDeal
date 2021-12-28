@@ -14,7 +14,20 @@ namespace TheWheelDeal.Controllers
         // GET: Rent
         public ActionResult Index()
         {
-            return View();
+            var result = (from r in db.rentals
+                          join c in db.carregs on r.carid equals c.carno
+                          select new RentalViewModel
+                          {
+                              id = r.id,
+                              carid = r.carid,
+                              custid = r.custid,
+                              fee = r.fee,
+                              sdate = r.sdate,
+                              edate = r.edate,
+                              available = c.available
+
+                          }).ToList();
+            return View(result);
         }
         [HttpGet]
         public ActionResult Getcar()
@@ -34,6 +47,26 @@ namespace TheWheelDeal.Controllers
             var caravil = (from s in db.carregs where s.carno == carno select s.available).FirstOrDefault();
             return Json(caravil, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public ActionResult Save(rental rent)
+        {
+            if (ModelState.IsValid) 
+            {
+                db.rentals.Add(rent);
+                var car = db.carregs.SingleOrDefault(e=>e.carno == rent.carid);
+                if (car == null)
+                {
+                    return HttpNotFound("Car number is not valid");
+                }
+                car.available = "no";
+                db.Entry(car).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rent);
+        }
+
+
 
     }
 }
