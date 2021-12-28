@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @using (Html.BeginForm("Save", "rent", FormMethod.Post, new { id = "popupForm" }))
+    {
+        <div>
+            <h1>Car Rental</h1>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Car no</label>
+            <select class="form-control" id="carno" name="carno" placeholder="CarNo" required>
+                <option>Please Select</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Customer ID</label>
+            <input type="text" id="custid" name="custid" class="form-control" placeholder="Customer ID" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Customer Name</label>
+            <input type="text" id="custname" name="custname" class="form-control" placeholder="Customer Name" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Rental Fee</label>
+            <input type="text" id="fee" name="fee" class="form-control" placeholder="Rental Fee" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Start Date</label>
+            <input type="date" id="sdate" name="sdate" class="form-control" placeholder="Start Date" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">End Date</label>
+            <input type="date" id="edate" name="edate" class="form-control" placeholder="End Date" required />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+
+    }
+
+
+
+</div>
+
+@section scripts {
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script>
+    getCar();
+    load();
+    function load() {
+        $("#custid").attr("disabled", "disabled");
+        $("#custname").attr("disabled", "disabled");
+        $("#fee").attr("disabled", "disabled");
+        $("#sdate").attr("disabled", "disabled");
+        $("#edate").attr("disabled", "disabled");
+    }
+    function getCar() {
+        $.ajax({
+            type: 'GET',
+            url: '/rent/Getcar',
+            dataType: 'JSON',
+            success: function(data)
+            {
+                console.log(data);
+                for (var i = 0; i < data.length; i++)
+                {
+                    $("#carno").append($("<option/>", {
+                        text: data[i].carno
+                    }));
+                }
+            }
+
+        });
+    }
+    $("#carno").change(function ()
+        {
+
+        available();
+
+
+
+    });
+    function available() {
+        $.ajax({
+            type: 'POST',
+            url: '/rent/Getavil?carno=' + $("#carno").val(),
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                var avil = data;
+                if (avil == "yes") {
+                    $("#custid").removeAttr('disabled');
+                    $("#custname").removeAttr('disabled');
+                    $("#fee").removeAttr('disabled');
+                    $("#sdate").removeAttr('disabled');
+                    $("#edate").removeAttr('disabled');
+
+                }
+                else {
+                    $("#custid").attr("disabled", "disabled");
+                    $("#custname").attr("disabled", "disabled");
+                    $("#fee").attr("disabled", "disabled");
+                    $("#sdate").attr("disabled", "disabled");
+                    $("#edate").attr("disabled", "disabled");
+                }
+            }
+        });
+
+    }
+    getCustomer();
+    function getCustomer() {
+        $("#custid").keyup(function(e){
+            $.ajax({
+                type: 'POST',
+                url: '/rent/Getid?id=' + $("#custid").val(),
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log(data);
+                    $("#custname").val(data)
+                }
+            });
+        });
+    }
+
+</script>
+
+}
