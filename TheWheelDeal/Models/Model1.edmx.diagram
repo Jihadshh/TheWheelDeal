@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="supercarModel.carreg" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="supercarModel.customer" Width="1.5" PointX="2.5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="supercarModel.rental" Width="1.5" PointX="0.875" PointY="3" />
+        <EntityTypeShape EntityType="supercarModel.returncar" Width="1.5" PointX="2.625" PointY="3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
