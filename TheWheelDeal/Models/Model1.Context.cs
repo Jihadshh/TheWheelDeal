@@ -29,5 +29,6 @@ namespace TheWheelDeal.Models
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<rental> rentals { get; set; }
         public virtual DbSet<returncar> returncars { get; set; }
+        public virtual DbSet<Registration> Registrations { get; set; }
     }
 }

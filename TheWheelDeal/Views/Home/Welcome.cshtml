@@ -1,8 +1,10 @@
-﻿@model TheWheelDeal.Models.customer
-
+﻿
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Welcome";
 }
+
+<h2>Welcome @Session["Username"].ToString()</h2>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,42 +35,6 @@
             </div>
         </div>
     </div>
-
+    
 </body>
 </html>
-
-<h2>Details of the customer</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.custname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.custname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.mobile)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
