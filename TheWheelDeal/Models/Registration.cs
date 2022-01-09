@@ -14,7 +14,7 @@ namespace TheWheelDeal.Models
     using System.ComponentModel.DataAnnotations;
 
     public partial class Registration
-    {
+    {   
         [Key]
         public int UserId { get; set; }
         [Display(Name = "First Name")]

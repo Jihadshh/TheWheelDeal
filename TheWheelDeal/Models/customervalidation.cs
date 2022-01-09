@@ -13,13 +13,13 @@ namespace TheWheelDeal.Models
         public class customerMetaData
         {
             [DisplayName("Customer Name")]
-            public string custname { get; set; }
+            public string CustName { get; set; }
 
             [DisplayName("Address")]
-            public string address { get; set; }
+            public string CustAddress { get; set; }
 
             [DisplayName("Mobile")]
-            public Nullable<int> mobile { get; set; }
+            public Nullable<int> CustMobileNumber { get; set; }
             
 
         }

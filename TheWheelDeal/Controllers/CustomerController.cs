@@ -46,7 +46,7 @@ namespace TheWheelDeal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,custname,address,mobile")] customer customer)
+        public ActionResult Create([Bind(Include = "CustId,CustName,CustAddress,CustMobileNumber")] customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TheWheelDeal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,custname,address,mobile")] customer customer)
+        public ActionResult Edit([Bind(Include = "CustId,CustName,CustAddress,CustMobileNumber")] customer customer)
         {
             if (ModelState.IsValid)
             {

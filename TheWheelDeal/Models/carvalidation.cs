@@ -13,15 +13,15 @@ namespace TheWheelDeal.Models
         public class carregMetaData
         {
             [DisplayName("CarNo")]
-            public string carno { get; set; }
+            public string CarNumber { get; set; }
 
             [DisplayName("Company")]
-            public string make { get; set; }
+            public string Make { get; set; }
 
             [DisplayName("Model")]
-            public string model { get; set; }
+            public string Model { get; set; }
             [DisplayName("Available")]
-            public string available { get; set; }
+            public string Available { get; set; }
 
         }
     }

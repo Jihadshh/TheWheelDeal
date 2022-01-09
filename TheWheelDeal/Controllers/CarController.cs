@@ -46,7 +46,7 @@ namespace TheWheelDeal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,carno,make,model,available")] carreg carreg)
+        public ActionResult Create([Bind(Include = "CarId,CarNumber,Make,Model,Available")] carreg carreg)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace TheWheelDeal.Controllers
             return View(carreg);
         }
 
-        // GET: Car/Edit/5
+        // GET: Car/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,7 +78,7 @@ namespace TheWheelDeal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,carno,make,model,available")] carreg carreg)
+        public ActionResult Edit([Bind(Include = "CarId,CarNumber,Make,Model,Available")] carreg carreg)
         {
             if (ModelState.IsValid)
             {

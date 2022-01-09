@@ -14,11 +14,11 @@ namespace TheWheelDeal.Models
     
     public partial class rental
     {
-        public int id { get; set; }
-        public string carid { get; set; }
-        public Nullable<int> custid { get; set; }
-        public Nullable<int> fee { get; set; }
-        public Nullable<System.DateTime> sdate { get; set; }
-        public Nullable<System.DateTime> edate { get; set; }
+        public int RentId { get; set; }
+        public string CarId { get; set; }
+        public Nullable<int> CustId { get; set; }
+        public Nullable<int> Fee { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
     }
 }

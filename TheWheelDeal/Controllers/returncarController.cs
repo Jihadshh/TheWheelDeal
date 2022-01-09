@@ -22,12 +22,12 @@ namespace TheWheelDeal.Controllers
             if (ModelState.IsValid)
             {
                 db.returncars.Add(recar);
-                var car = db.carregs.SingleOrDefault(e => e.carno == recar.carno);
+                var car = db.carregs.SingleOrDefault(e => e.CarNumber == recar.CarNumber);
                 if(car == null)
                 {
                     return HttpNotFound("Car number not found");
                 }
-                car.available = "yes";
+                car.Available = "yes";
                 db.Entry(car).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -38,15 +38,15 @@ namespace TheWheelDeal.Controllers
         public ActionResult Getid(String carno)
         {
             var carn = (from s in db.rentals
-                        where s.carid == carno
+                        where s.CarId == carno
                         select new
                         {
-                            StartDate = s.sdate,
-                            EndDate = s.edate,
-                            Custid = s.custid,
-                            CarNo = s.carid,
-                            Fee = s.fee,
-                            ElapsedDays = SqlFunctions.DateDiff("day", s.edate, DateTime.Now)
+                            StartDate = s.StartDate,
+                            EndDate = s.EndDate,
+                            Custid = s.CustId,
+                            CarNo = s.CarId,
+                            Fee = s.Fee,
+                            ElapsedDays = SqlFunctions.DateDiff("day", s.EndDate, DateTime.Now)
 
                         }).ToArray();
             return Json(carn, JsonRequestBehavior.AllowGet);

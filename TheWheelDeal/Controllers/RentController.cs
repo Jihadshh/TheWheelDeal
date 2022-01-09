@@ -15,16 +15,16 @@ namespace TheWheelDeal.Controllers
         public ActionResult Index()
         {
             var result = (from r in db.rentals
-                          join c in db.carregs on r.carid equals c.carno
+                          join c in db.carregs on r.CarId equals c.CarNumber
                           select new RentalViewModel
                           {
-                              id = r.id,
-                              carid = r.carid,
-                              custid = r.custid,
-                              fee = r.fee,
-                              sdate = r.sdate,
-                              edate = r.edate,
-                              available = c.available
+                              RentId = r.RentId,
+                              CarId = r.CarId,
+                              CustId = r.CustId,
+                              Fee = r.Fee,
+                              StartDate = r.StartDate,
+                              EndDate = r.EndDate,
+                              Available = c.Available
 
                           }).ToList();
             return View(result);
@@ -36,15 +36,15 @@ namespace TheWheelDeal.Controllers
             return Json(car, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult Getid(int id)
+        public ActionResult Getid(String name)
         {
-           var customer = (from s in db.customers where s.id==id select s.custname).ToList();
+           var customer = (from s in db.customers where s.CustName==name select s.CustId).ToList();
             return Json(customer, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult Getavil(String carno)
         {
-            var caravil = (from s in db.carregs where s.carno == carno select s.available).FirstOrDefault();
+            var caravil = (from s in db.carregs where s.CarNumber == carno select s.Available).FirstOrDefault();
             return Json(caravil, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
@@ -53,12 +53,12 @@ namespace TheWheelDeal.Controllers
             if (ModelState.IsValid) 
             {
                 db.rentals.Add(rent);
-                var car = db.carregs.SingleOrDefault(e=>e.carno == rent.carid);
+                var car = db.carregs.SingleOrDefault(e=>e.CarNumber == rent.CarId);
                 if (car == null)
                 {
                     return HttpNotFound("Car number is not valid");
                 }
-                car.available = "no";
+                car.Available = "no";
                 db.Entry(car).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

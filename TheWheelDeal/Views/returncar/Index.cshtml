@@ -46,24 +46,24 @@
 
             <div class="form-group">
                 <label class="form-label">Car Number</label>
-                <input type="text" id="carno" name="carno" class="form-control" placeholder="CarID" required />
+                <input type="text" id="CarNumber" name="CarNumber" class="form-control" placeholder="CarID" required />
             </div>
 
             <div class="form-group">
                 <label class="form-label">Customer ID</label>
-                <input type="text" id="custid" name="custid" class="form-control" placeholder="Customer ID" required />
+                <input type="text" id="CustId" name="CustId" class="form-control" placeholder="Customer ID" required />
             </div>
             <div class="form-group">
                 <label class="form-label">Date</label>
-                <input type="text" id="returndate" name="returndate" class="form-control" placeholder="Date" required />
+                <input type="text" id="ReturnDate" name="ReturnDate" class="form-control" placeholder="Date" required />
             </div>
             <div class="form-group">
                 <label class="form-label">Days elapsed</label>
-                <input type="text" id="elap" name="elap" class="form-control" placeholder="Days elapse" required />
+                <input type="text" id="ElapsedDate" name="ElapsedDate" class="form-control" placeholder="Days elapsed" required />
             </div>
             <div class="form-group">
                 <label class="form-label">Fine</label>
-                <input type="text" id="fine" name="fine" class="form-control" placeholder="Fine" required />
+                <input type="text" id="Fine" name="Fine" class="form-control" placeholder="Fine" required />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" />
@@ -82,22 +82,22 @@
     <script>
         getCarid();
         function getCarid() {
-            $("#carno").keyup(function (e) {
+            $("#CarNumber").keyup(function (e) {
                 $.ajax({
                     type: 'POST',
-                    url: '/returncar/Getid?carno=' + $("#carno").val(),
+                    url: '/returncar/Getid?carno=' + $("#CarNumber").val(),
                     dataType: 'JSON',
                     success: function (data) {
                         console.log(data);
-                        $('#custid').val(data[0].Custid);
-                        $('#returndate').val(new Date(parseInt(data[0].EndDate.substr(6))).toLocaleDateString());
-                        $('#elap').val(data[0].ElapsedDays);
-                        var elap = data[0].ElapsedDays;
-                        if (elap > 0) {
-                            var fine = elap * 100;
-                            $('#fine').val(fine.toString());
+                        $('#CustId').val(data[0].Custid);
+                        $('#ReturnDate').val(new Date(parseInt(data[0].EndDate.substr(6))).toLocaleDateString());
+                        $('#ElapsedDate').val(data[0].ElapsedDays);
+                        var ElapsedDays = data[0].ElapsedDays;
+                        if (ElapsedDays > 0) {
+                            var Fine = ElapsedDays * 100;
+                            $('#Fine').val(Fine.toString());
                         } else {
-                            $('#fine').val("0");
+                            $('#Fine').val("0");
                         }
 
                     }

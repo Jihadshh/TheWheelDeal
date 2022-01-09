@@ -45,16 +45,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.carno)
+            @Html.DisplayNameFor(model => model.CarNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.make)
+            @Html.DisplayNameFor(model => model.Make)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.model)
+            @Html.DisplayNameFor(model => model.Model)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.available)
+            @Html.DisplayNameFor(model => model.Available)
         </th>
         <th></th>
     </tr>
@@ -63,21 +63,21 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.carno)
+                @Html.DisplayFor(modelItem => item.CarNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.make)
+                @Html.DisplayFor(modelItem => item.Make)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.model)
+                @Html.DisplayFor(modelItem => item.Model)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.available)
+                @Html.DisplayFor(modelItem => item.Available)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Edit", "Edit", new { id = item.CarId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CarId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CarId })
             </td>
         </tr>
     }

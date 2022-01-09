@@ -14,11 +14,11 @@ namespace TheWheelDeal.Models
     
     public partial class returncar
     {
-        public int id { get; set; }
-        public string carno { get; set; }
-        public Nullable<int> custid { get; set; }
-        public Nullable<System.DateTime> returndate { get; set; }
-        public Nullable<int> fine { get; set; }
-        public Nullable<int> elap { get; set; }
+        public int ReturnId { get; set; }
+        public string CarNumber { get; set; }
+        public Nullable<int> CustId { get; set; }
+        public Nullable<System.DateTime> ReturnDate { get; set; }
+        public Nullable<int> Fine { get; set; }
+        public Nullable<int> ElapsedDate { get; set; }
     }
 }

@@ -14,9 +14,9 @@ namespace TheWheelDeal.Models
     
     public partial class customer
     {
-        public int id { get; set; }
-        public string custname { get; set; }
-        public string address { get; set; }
-        public Nullable<int> mobile { get; set; }
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public string CustAddress { get; set; }
+        public Nullable<int> CustMobileNumber { get; set; }
     }
 }
