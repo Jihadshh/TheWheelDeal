@@ -3,7 +3,7 @@
     ViewBag.Title = "Welcome";
 }
 
-<h2>Welcome @Session["Username"].ToString()</h2>
+<h2 style="font-weight:bold ; border-bottom:none ; position:absolute ;margin-top:100px ;margin-left:-130px; font-size:50px ;border:2px solid black ; border-radius:10px ; padding:5px ; font-family:'Poppins'">Welcome @Session["Username"].ToString() </h2>
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-image:url(/Content/mercbg.jpg); background-size:cover ; background-repeat:no-repeat; height:100vh ;background-position:center">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,14 +23,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div >@Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" ,@style= "font-family: 'Poppins' !important ; font-size: 30px" });
+                </div>
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Car", "Index", "Car")</li>
-                    <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
-                    <li>@Html.ActionLink("Return car", "Index", "returncar")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Car", "Index", "Car")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Customer", "Index", "Customer")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Rent", "Index", "Rent")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Return car", "Index", "returncar")</li>
                 </ul>
             </div>
         </div>

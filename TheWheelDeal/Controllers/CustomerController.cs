@@ -34,7 +34,7 @@ namespace TheWheelDeal.Controllers
             }
             return View(customer);
         }
-
+        
         // GET: Customer/Create
         public ActionResult Create()
         {

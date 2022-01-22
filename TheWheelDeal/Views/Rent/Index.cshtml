@@ -13,7 +13,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,14 +21,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "font-family: 'Poppins' !important ; font-size: 30px" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Car", "Index", "Car")</li>
-                    <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
-                    <li>@Html.ActionLink("Return car", "Index", "returncar")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Car", "Index", "Car")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Customer", "Index", "Customer")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Rent", "Index", "Rent")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Return car", "Index", "returncar")</li>
                 </ul>
             </div>
         </div>
@@ -73,21 +73,21 @@
                 <label class="form-label">End Date</label>
                 <input type="date" id="EndDate" name="EndDate" class="form-control" placeholder="End Date" required />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-success" />
+            <div class="form-group" >
+                <input type="submit" value="Save" class="btn btn-success" style="background-color: black ;border-color:black" />
             </div>
 
         }
     </div>
     <div class="col-sm-8">
-        <table class="table">
+        <table class="table table-bordered" style="margin-top:90px">
             <tr>
-                <th>Car Number</th>
-                <th>Customer ID</th>
-                <th>Fee</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Available</th>
+                <th style="background-color:black ; color:white">Car Number</th>
+                <th style="background-color:black ; color:white">Customer ID</th>
+                <th style="background-color:black ; color:white">Fee</th>
+                <th style="background-color:black ; color:white">Start Date</th>
+                <th style="background-color:black ; color:white">End Date</th>
+                <th style="background-color:black ; color:white">Available</th>
             </tr>
             @foreach (var item in Model)
             {

@@ -47,7 +47,6 @@ namespace TheWheelDeal.Controllers
                             CarNo = s.CarId,
                             Fee = s.Fee,
                             ElapsedDays = SqlFunctions.DateDiff("day", s.EndDate, DateTime.Now)
-
                         }).ToArray();
             return Json(carn, JsonRequestBehavior.AllowGet);
         }

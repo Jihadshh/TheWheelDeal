@@ -1,0 +1,27 @@
+<div class="form-froup row">
+    <label for="col-sm-2 col-form-label">Car Number</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="CarNumber" placeholder="Enter Car Number">
+    </div>
+    <label for="col-sm-2 col-form-label">Company</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Make" placeholder="Enter the car's company">
+    </div>
+    <label for="col-sm-2 col-form-label">Car Model</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Model" placeholder="Enter Car Model">
+    </div>
+    <label for="col-sm-2 col-form-label">Available</label>
+    <div class="col-sm-10">
+        <select name="Available" id="Available" [(ngModel)]="Available">
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+    </div>
+</div>
+<button (click)="addCar()" *ngIf="car.CarId==0" class="btn btn-primary" style="margin-top: 10px;">
+    Add
+</button>
+<button (click)="updateCar()" *ngIf="car.CarId!=0" class="btn btn-primary">
+    Update
+</button>

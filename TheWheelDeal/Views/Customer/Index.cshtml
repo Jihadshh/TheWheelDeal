@@ -13,7 +13,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,14 +21,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "font-family: 'Poppins' !important ; font-size: 30px" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Car", "Index", "Car")</li>
-                    <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
-                    <li>@Html.ActionLink("Return car", "Index", "returncar")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Car", "Index", "Car")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Customer", "Index", "Customer")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Rent", "Index", "Rent")</li>
+                    <li style="font-family:'Poppins'!important; font-size:18px">@Html.ActionLink("Return car", "Index", "returncar")</li>
                 </ul>
             </div>
         </div>
@@ -37,23 +37,23 @@
 </body>
 </html>
 
-<h2>Cars</h2>
+<h2>Customers' List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered " >
     <tr>
-        <th>
+        <th style="background-color:black ; color:white">
             @Html.DisplayNameFor(model => model.CustName)
         </th>
-        <th>
+        <th style="background-color:black ; color:white">
             @Html.DisplayNameFor(model => model.CustAddress)
         </th>
-        <th>
+        <th style="background-color:black ; color:white">
             @Html.DisplayNameFor(model => model.CustMobileNumber)
         </th>
-        <th></th>
+        <th style="background-color:black ; color:white">Actions</th>
     </tr>
 
 @foreach (var item in Model) {
