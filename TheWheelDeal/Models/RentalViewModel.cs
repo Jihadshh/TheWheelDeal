@@ -15,6 +15,5 @@ namespace TheWheelDeal.Models
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Available { get; set; }
 
-
     }
 }

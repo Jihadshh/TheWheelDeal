@@ -47,8 +47,8 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label">Car Number</label>
-                <select class="form-control" id="CarId" name="CarId" placeholder="CarNumber" required>
+                <label class="form-label">Car Number</label><br />
+                <select id="CarId" class="chosen-select" name="CarId" placeholder="CarNumber" required>
                     <option>Please Select</option>
                 </select>
             </div>
@@ -73,7 +73,7 @@
                 <label class="form-label">End Date</label>
                 <input type="date" id="EndDate" name="EndDate" class="form-control" placeholder="End Date" required />
             </div>
-            <div class="form-group" >
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" style="background-color: black ;border-color:black" />
             </div>
 
@@ -107,9 +107,13 @@
 </div>
 
 @section scripts {
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    @*<script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>*@
+    <script type="text/javascript">
+        $(".chosen-select").chosen({ width: "75%" });
+    </script>
     <script>
         getCar();
         load();
@@ -125,16 +129,16 @@
                 type: 'GET',
                 url: '/rent/Getcar',
                 dataType: 'JSON',
-                success: function (data) {
-                    console.log(data);
+                success: function (data) {                    
+                    $("#CarId").empty();
                     for (var i = 0; i < data.length; i++) {
                         $("#CarId").append($("<option/>", {
                             text: data[i].CarNumber
                         }));
                     }
+                    $("#CarId").trigger("chosen:updated");
                 }
-
-            });
+            })
         }
         $("#CarId").change(function () {
 

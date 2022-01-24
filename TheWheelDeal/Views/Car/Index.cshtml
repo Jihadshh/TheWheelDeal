@@ -3,6 +3,16 @@
 @{
     ViewBag.Title = "Car's list";
 }
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+@section Scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Cars').DataTable();
+        });
+    </script>
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" , @style = "font-family: 'Poppins' !important ; font-size: 30px" })
+                @Html.ActionLink("The Wheel Deal", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "font-family: 'Poppins' !important ; font-size: 30px" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,22 +52,24 @@
 <p>
     @Html.ActionLink("Add a new car", "Create")
 </p>
-<table class="table table-bordered">
-    <tr>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.CarNumber)
-        </th>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.Make)
-        </th>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.Available)
-        </th>
-        <th style="background-color:black ; color:white"> Actions</th>
-    </tr>
+<table id="Cars">
+    <thead>
+        <tr>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.CarNumber)
+            </th>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.Available)
+            </th>
+            <th style="background-color:black ; color:white"> Actions</th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {

@@ -3,6 +3,16 @@
 @{
     ViewBag.Title = "Customer's list";
 }
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+@section Scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Customers').DataTable();
+        });
+    </script>
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +43,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>
 
@@ -42,37 +52,42 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table table-bordered " >
-    <tr>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.CustName)
-        </th>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.CustAddress)
-        </th>
-        <th style="background-color:black ; color:white">
-            @Html.DisplayNameFor(model => model.CustMobileNumber)
-        </th>
-        <th style="background-color:black ; color:white">Actions</th>
-    </tr>
+<table id="Customers">
+    <thead>
+        <tr>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.CustName)
+            </th>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.CustAddress)
+            </th>
+            <th style="background-color:black ; color:white">
+                @Html.DisplayNameFor(model => model.CustMobileNumber)
+            </th>
+            <th style="background-color:black ; color:white">Actions</th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustMobileNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustMobileNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CustId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustId })
+                </td>
+            </tr>
+        </tbody>
+    }
 
 </table>
